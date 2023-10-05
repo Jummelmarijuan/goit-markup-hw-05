@@ -51,7 +51,7 @@
         <section class="hero-section section">
             <div class="container">
                 <h1 class="hero-title">Effective Solutions<br>for Your Business</h1>
-                <button class="btn" type="button">Order Service</button>
+                <button class="order-btn active" type="button" data-modal-open>Order Service</button>
             </div>
         </section>
 
@@ -99,17 +99,16 @@
             <div class="container section-container">
                 <h1 class="what-are-we-doing-title title">What Are We Doing</h1>
                     <ul class="what-are-we-doing-list">
-
                         <li class="what-are-we-doing-item">
-                            <img src="./images/img-1.jpg" alt="img-1" width="300">
+                            <img src="./images/img-1.jpg" alt="img-1" width="360" height="300">
                         </li>
 
                         <li class="what-are-we-doing-item">
-                            <img src="./images/img-2.jpg" alt="img-2" width="300">
+                            <img src="./images/img-2.jpg" alt="img-2" width="360" height="300">
                         </li>
 
                         <li class="what-are-we-doing-item">
-                            <img src="./images/img-3.jpg" alt="img-3" width="300">
+                            <img src="./images/img-3.jpg" alt="img-3" width="360" height="300">
                         </li>
                     </ul>
             </div>
@@ -281,7 +280,7 @@
                     <li class="customer-list-item">
                     <a class="customer-list-item-link" href="">
                         <svg class="customer-icon-svg">
-                            <use xlink:href="./icon.svg#customer1"></use>
+                            <use href="./icon.svg#customer1"></use>
                         </svg>
                     </a>
                     </li>
@@ -371,5 +370,15 @@
             </div>
         </div>
     </footer>
+
+    <div class="modal is-hidden" data-modal>
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-modal-close>
+                <svg class="close-btn">
+                    <use href="./icon.svg#icon-close"></use>
+                </svg>
+            </button>
+        </div>
+        <script src="./js/modal.js"></script>
 </body>
 </html>

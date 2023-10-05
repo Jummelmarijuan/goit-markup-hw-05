@@ -21,6 +21,7 @@ body {
     --WHITE: #fff;
     --DAIRY: #FCFCFC;
     --GREEN: #31D0AA;
+    --TRANSITION-DURATION: 250ms;
 }
 
 /* General Styles */
@@ -128,12 +129,21 @@ nav {
     background: var(--OCEAN);
     position: absolute;
     left: 0;
+    width: 0;
     bottom: -27px;
     border-radius: 2px;
 }
 
 .nav-list-item-link:hover::after {
+    content: '';
+    height: 4px;
+    background-color: var(--OCEAN);
+    position: absolute;
+    left: 0;
+    bottom: -27px;
+    border-radius: 2px;
     width: 100%;
+    transition: var(--TRANSITION-DURATION);
 }
 
 .nav-active::after {
@@ -184,7 +194,7 @@ address {
     color: var(--WHITE);
 }
 
-.btn {
+.order-btn {
     color: var(--WHITE);
     background-color: var(--IRIS);
     border: unset;
@@ -197,9 +207,10 @@ address {
     padding: 16px 32px;
     text-transform: capitalize;
     cursor: pointer;
+    transition: var(--TRANSITION-DURATION);
 }
 
-.btn:hover {
+.order-btn:hover {
     background-color: var(--OCEAN);
 }
 /* End of Hero Section */
@@ -208,14 +219,15 @@ address {
 .adv-section {
     padding-top: 120px;    
 }
+
 .adv-list {
     display: flex;
     gap: 24px;
     justify-content: center;
 }
+
 .adv-item {
-    display: inline-block;
-    
+    width: 264px;
 }
 
 .adv-icon {
@@ -308,6 +320,7 @@ address {
     background-color: var(--IRIS);
     padding: 12px;
     display: flex;
+    transition: var(--TRANSITION-DURATION);
 }
 
 .social-media-icon {
@@ -320,7 +333,7 @@ address {
 
 .social-media-link:hover,
 .social-media-link:focus {
-    background-color: var(--GREEN);
+    background-color: var(--OCEAN);
 }
 /* End of Our Team Section */
 
@@ -365,6 +378,7 @@ address {
     height: 56px;
     display: flex;
     fill: currentColor;
+    transition: var(--TRANSITION-DURATION);
 }
 
 .customer-list-item-link:hover,
@@ -372,6 +386,7 @@ address {
     border-color: var(--OCEAN); 
     color: var(--OCEAN);
 }
+
 
 /* Footer */
 .footer-container {
@@ -424,6 +439,7 @@ address {
     padding: 8px;
     align-items: center;
     fill: currentColor;
+    transition: var(--TRANSITION-DURATION);
 }
 
 .footer-social-media-icon {
@@ -451,6 +467,7 @@ address {
     display: flex;
     justify-content: center;
     gap: 24px;
+    transition: var(--TRANSITION-DURATION);
 }
 
 .fltr-btn-item {
@@ -463,6 +480,7 @@ address {
     font-weight: 500;
     padding: 12px 24px;
     letter-spacing: 0.64px;
+    transition: var(--TRANSITION-DURATION);
 }
 
 .fltr-btn-item.active{
@@ -486,6 +504,10 @@ address {
 }
 
 /* Card Section */
+figure {
+    margin: 0;
+}
+
 
 .card-feature-section {
     padding-bottom: 120px;
@@ -501,8 +523,48 @@ address {
 
 .card-list-item {
     display: inline-block;
-    border: 1px solid var(--CORNFLOWER);
     background-color: var(--WHITE);
+    box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+    transition: box-shadow var(--TRANSITION-DURATION);
+}
+
+.card-figure {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.card-list-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-figcaption {
+    background-color: var(--IRIS);
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    display: flex;
+    padding: 0 24px;
+    align-items: center;
+    transition: transform var(--TRANSITION-DURATION) cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(100%);
+}
+
+.card-list-item:hover {
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);
+}
+
+.card-list-item:hover figcaption {
+    transform: translateY(0);
 }
 
 .card-content {
@@ -521,11 +583,81 @@ address {
 }
 
 .class-card-designation {
-    color: var(--SLATE, #434455);
+    color: var(--SLATE);
     font-family: Roboto;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.32px;
+}
+
+/* Modal */
+
+.modal {
+    background-color: var(--NAVY-BLUE-modal);
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    pointer-events: auto;
+    transition-property: visibility, opacity;
+    transition-duration: var(--TRANSITION-DURATION);
+}
+
+.close-button-icon {
+    fill: currentColor;
+    transition: var(--TRANSITION-DURATION);
+}
+
+.modal-content {
+    width: 408px;
+    height: 584px;
+    margin: auto;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20), 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+    border-radius: 4px;
+    background: var(--DAIRY);
+    transform: none;
+    transition: transform var(--TRANSITION-DURATION);
+}
+
+.modal-close {
+    background-color: var(--CORNFLOWER);
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left: 90%;
+    top: 24px;
+    border-radius: 50%;
+    padding: 3px;
+    color: var(--NAVY-BLUE);
+    transition: var(--TRANSITION-DURATION);
+}
+
+.close-btn {
+    height: 24px;
+    width: 24px;
+}
+
+.modal-close:hover {
+    background: var(--OCEAN);
+    border-color: var(--OCEAN);
+    fill: var(--CLOUD);
+}
+
+.modal.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal.is-hidden .modal-content {
+    transform: translateY(-20px);
 }
